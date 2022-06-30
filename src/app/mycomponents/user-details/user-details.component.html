@@ -1,0 +1,37 @@
+<div class="user-details">
+  <div>
+    <ul *ngFor="let data of users">
+      <div class="card" [style.borderColor]="data.isDeleted ? 'red' : 'green'">
+        <div class="cards-data">
+          <div class="card-body">{{ data.firstName }}</div>
+          <div class="bt-deactivate">
+            <button
+              class="btn btn-primary"
+              type="button"
+              (click)="showDetails(data.id)"
+            >
+              Details
+            </button>
+          </div>
+        </div>
+      </div>
+    </ul>
+  </div>
+
+  <div *ngFor="let data of users">
+    <div class="card-detail" *ngIf="data.id === details_id">
+      <div class="cards-data-details">
+        <h3>{{ data.firstName }}</h3>
+        <br />
+        <span [style.color]="data.isDeleted === true ? 'red' : 'green'">
+          <h5 *ngIf="data.isDeleted === true">Deleted</h5>
+          <h5 *ngIf="data.isDeleted === false">Active</h5>
+        </span>
+        <p>Login id : {{ data.login }}</p>
+        <p>First Name : {{ data.firstName }}</p>
+        <p>Last Name : {{ data.lastName }}</p>
+        <p>Age : {{ data.age }}</p>
+      </div>
+    </div>
+  </div>
+</div>

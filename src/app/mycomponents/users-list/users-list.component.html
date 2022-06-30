@@ -1,0 +1,25 @@
+<!-- <app-user></app-user>
+ -->
+
+<ul *ngFor="let user of users">
+  <li>
+    <div
+      class="card"
+      ngClass="deactive"
+      *ngIf="user.isDeleted == !hasRoute('active')"
+    >
+      <div class="cards-data">
+        <div class="card-body">{{ user.firstName }}</div>
+        <div class="action">
+          <button
+            class="btn btn-success"
+            type="button"
+            (click)="activateUser(user.id)"
+          >
+            Activate
+          </button>
+        </div>
+      </div>
+    </div>
+  </li>
+</ul>
